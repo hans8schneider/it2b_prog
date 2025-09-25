@@ -1,0 +1,40 @@
+#include <stdio.h>
+int main() {
+    
+    int h, m, s, v, vystup, zaver;
+    
+    printf("Zadej cas odletu letadla (Hodinu): ");
+    scanf("%d", &h);
+    printf("Zadej cas odletu letadla (minuty): ");
+    scanf("%d", &m);
+    printf("Zadej vzdalenost trasy letadla (v KM):");
+    scanf("%d", &s);
+    printf("Zadej rychlost letadla (v KM/H): ");
+    scanf("%d", &v);
+    
+    float cesta;
+    
+    cesta = (float) s / v;
+    cesta = cesta * 60;
+    
+    float cas_h, cas;
+    
+    cas_h = (float) h * 60;
+    
+    cas = (float) m + h;
+    
+    vystup = cas + cesta;
+    
+    int hodiny = vystup / 60;   
+    int minuty = vystup % 60; 
+    
+    if(vystup + cesta  > 1440){
+        hodiny = hodiny - 24;
+        printf("prilet letadla v %d : %d", hodiny, minuty);
+    } else if(cas + cesta < 24){
+         printf("prilet letadla v %d : %d", hodiny, minuty);
+    } else{
+        printf("s touto moznosti vysledku jsem nepocital, obrat se na tvurce");
+    }
+    
+    
